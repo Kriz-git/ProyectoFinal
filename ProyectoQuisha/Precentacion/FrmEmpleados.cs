@@ -31,6 +31,8 @@ namespace ProyectoQuisha
         }
         private void MtdConsultarEmpleados()
         {
+            DataTable dt = CDempleados.MtdConsultarEmpleados();
+            DgvEmpleados.DataSource = dt;
 
         }
 
