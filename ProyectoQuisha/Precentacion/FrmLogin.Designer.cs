@@ -108,6 +108,7 @@
             this.btnminimizar.Size = new System.Drawing.Size(16, 16);
             this.btnminimizar.TabIndex = 7;
             this.btnminimizar.TabStop = false;
+            this.btnminimizar.Click += new System.EventHandler(this.btnminimizar_Click);
             // 
             // btnCerrar
             // 
@@ -118,6 +119,7 @@
             this.btnCerrar.Size = new System.Drawing.Size(16, 16);
             this.btnCerrar.TabIndex = 6;
             this.btnCerrar.TabStop = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btnLogin
             // 
