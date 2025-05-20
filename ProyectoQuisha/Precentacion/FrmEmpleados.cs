@@ -31,8 +31,7 @@ namespace ProyectoQuisha
         }
         private void MtdConsultarEmpleados()
         {
-            DateTable dtEmpleados = CDempleados.MtdConsultarEmpleados();
-            DgvEmpleados.DataSource = dtEmpleados;
+
         }
 
         private void groupBox1_Enter(object sender, EventArgs e){}
@@ -115,31 +114,7 @@ namespace ProyectoQuisha
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if ((string.IsNullOrEmpty(txtCodigoEmpleado.Text) || txtNombre.Text == "" || cboxPuesto.Text == "" || txtSalario.Text == "" || dtpFechaContratacion.Text == "" || cboxEstado.Text == ""))
-            {
-                MessageBox.Show("Los campos no pueden estar en blanco", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                string nombre = txtNombre.Text;
-                string puesto = cboxPuesto.Text;
-                string salario = txtSalario.Text;
-                DateTime fechaContratacion = dtpFechaContratacion.Value;
-                string estado = cboxEstado.Text;
-                string usuarioSistema = "Crisitian";
-                DateTime fechaSistema = CLempleados.mtdfecha();
-                try
-                {
-                    CDempleados.MtdModificarEmpleados(nombre, puesto, salario, fechaContratacion, estado, usuarioSistema, fechaSistema);
-                    MessageBox.Show("Datos Editados correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    MtdConsultarEmpleados();
-                    mtdLimpiar();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
+           
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
