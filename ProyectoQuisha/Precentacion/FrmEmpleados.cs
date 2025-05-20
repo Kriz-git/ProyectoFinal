@@ -90,7 +90,7 @@ namespace ProyectoQuisha
                 else
                 {
                     string nombre = txtNombre.Text;
-                    string puesto = cboxPuesto.Text;
+                    string cargo = cboxPuesto.Text;
                     string salario = txtSalario.Text;
                     DateTime fechaContratacion = dtpFechaContratacion.Value;
                     string estado = cboxEstado.Text;
@@ -99,7 +99,7 @@ namespace ProyectoQuisha
 
                 try
                 {
-                    CDempleados.MtdAgregarEmpleados(nombre, puesto, salario, fechaContratacion, estado, usuarioSistema, fechaSistema);
+                    CDempleados.MtdAgregarEmpleados(nombre, cargo, salario, fechaContratacion, estado, usuarioSistema, fechaSistema);
                     MessageBox.Show("Datos agregados correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     MtdConsultarEmpleados();
                     mtdLimpiar();
