@@ -26,7 +26,7 @@ namespace ProyectoQuisha.Datos
         public void MtdAgregarEmpleados(string nombre, string cargo, string salario, DateTime fechaContratacion, string Estado, string UsuarioSistema, DateTime FechaSistema)
         {
             string QueryAgregar = "Insert into tbl_Empleado (nombre, cargo, Salario, FechaContratacion, estado, usuarioSistema, FechaSistema) " +
-                                                "values (@nombre, @Puesto, @Salario, @FechaContratacion, @estado, @usuarioSistema, @FechaSistema)";
+                                                "values (@nombre, @cargo, @Salario, @FechaContratacion, @estado, @usuarioSistema, @FechaSistema)";
             SqlCommand cmd = new SqlCommand(QueryAgregar, cd_conexion.MtdAbrirConexion());
             cmd.Parameters.AddWithValue("@nombre", nombre);
             cmd.Parameters.AddWithValue("@cargo", cargo);
