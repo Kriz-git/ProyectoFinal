@@ -95,7 +95,7 @@
             this.linkblPASS.Location = new System.Drawing.Point(328, 268);
             this.linkblPASS.Name = "linkblPASS";
             this.linkblPASS.Size = new System.Drawing.Size(162, 18);
-            this.linkblPASS.TabIndex = 5;
+            this.linkblPASS.TabIndex = 0;
             this.linkblPASS.TabStop = true;
             this.linkblPASS.Text = "¿Olvidaste tu contraseña?";
             // 
