@@ -132,7 +132,7 @@ namespace ProyectoQuisha
                 string estado = cboxEstado.Text;
                 string usuarioSistema = "Crisitian";
                 DateTime FechaSistema = CLempleados.mtdfecha();
-
+                 
                 try
                 {
                     CDempleados.MtdActualizarEmpleados(codigoEmpleado, nombre, cargo, salario, fechaContratacion, estado, usuarioSistema, FechaSistema);
