@@ -39,10 +39,11 @@ namespace ProyectoQuisha.Datos
             cd_conexion.MtdCerrarConexion();
         }
 
-        public void MtdModificarEmpleados(int CodigoEmpleado, string nombre, string cargo, double salario, DateTime fechaContratacion, string Estado, string UsuarioSistema, DateTime FechaSistema)
+        public void MtdActualizarEmpleados(int CodigoEmpleado, string nombre, string cargo, double salario, DateTime fechaContratacion, string Estado, string UsuarioSistema, DateTime FechaSistema)
         {
-            string QueryModificar = "Update tbl_Empleado set nombre=@nombre, cargo=@cargo, Salario=@Salario, FechaContratacion=@FechaContratacion, estado=@estado, usuarioSistema=@usuarioSistema, FechaSistema=@FechaSistema where CodigoEmpleado=@CodigoEmpleado";
-            SqlCommand cmd = new SqlCommand(QueryModificar, cd_conexion.MtdAbrirConexion());
+            string QueryActualizar = "Update tbl_Empleado set nombre=@nombre, cargo=@cargo, Salario=@Salario, FechaContratacion=@FechaContratacion, estado=@estado," +
+                                                                " usuarioSistema=@usuarioSistema, FechaSistema=@FechaSistema where CodigoEmpleado=@CodigoEmpleado";
+            SqlCommand cmd = new SqlCommand(QueryActualizar, cd_conexion.MtdAbrirConexion());
             cmd.Parameters.AddWithValue("@CodigoEmpleado", CodigoEmpleado);
             cmd.Parameters.AddWithValue("@nombre", nombre);
             cmd.Parameters.AddWithValue("@cargo", cargo);

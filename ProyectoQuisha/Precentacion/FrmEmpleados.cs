@@ -36,8 +36,8 @@ namespace ProyectoQuisha
 
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e){}
-        private void textBox1_TextChanged(object sender, EventArgs e){}
+        private void groupBox1_Enter(object sender, EventArgs e) { }
+        private void textBox1_TextChanged(object sender, EventArgs e) { }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
@@ -85,20 +85,20 @@ namespace ProyectoQuisha
         private void btnAgregar_Click(object sender, EventArgs e)
         {
 
-                if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(cboxPuesto.Text) || string.IsNullOrEmpty(txtSalario.Text) 
-                || string.IsNullOrEmpty(dtpFechaContratacion.Text) || string.IsNullOrEmpty(cboxEstado.Text))
-                {
-                    MessageBox.Show("Los campos no pueden estar en blanco", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    string nombre = txtNombre.Text;
-                    string cargo = cboxPuesto.Text;
+            if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(cboxPuesto.Text) || string.IsNullOrEmpty(txtSalario.Text)
+            || string.IsNullOrEmpty(dtpFechaContratacion.Text) || string.IsNullOrEmpty(cboxEstado.Text))
+            {
+                MessageBox.Show("Los campos no pueden estar en blanco", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                string nombre = txtNombre.Text;
+                string cargo = cboxPuesto.Text;
                 double salario = int.Parse(txtSalario.Text);
                 DateTime fechaContratacion = dtpFechaContratacion.Value;
-                    string estado = cboxEstado.Text;
-                    string usuarioSistema = "Crisitian";
-                    DateTime FechaSistema = CLempleados.mtdfecha();
+                string estado = cboxEstado.Text;
+                string usuarioSistema = "Crisitian";
+                DateTime FechaSistema = CLempleados.mtdfecha();
 
                 try
                 {
@@ -111,7 +111,7 @@ namespace ProyectoQuisha
                 {
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                }
+            }
 
         }
 
@@ -127,7 +127,7 @@ namespace ProyectoQuisha
                 int codigoEmpleado = int.Parse(txtCodigoEmpleado.Text);
                 string nombre = txtNombre.Text;
                 string cargo = cboxPuesto.Text;
-                double salario = int.Parse(txtSalario.Text);
+                int salario = int.Parse(txtSalario.Text);
                 DateTime fechaContratacion = dtpFechaContratacion.Value;
                 string estado = cboxEstado.Text;
                 string usuarioSistema = "Crisitian";
@@ -135,7 +135,7 @@ namespace ProyectoQuisha
 
                 try
                 {
-                    CDempleados.MtdModificarEmpleados(nombre, cargo, salario, fechaContratacion, estado, usuarioSistema, FechaSistema);
+                    CDempleados.MtdActualizarEmpleados(codigoEmpleado, nombre, cargo, salario, fechaContratacion, estado, usuarioSistema, FechaSistema);
                     MessageBox.Show("Datos editado correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     MtdConsultarEmpleados();
                     mtdLimpiar();
@@ -149,9 +149,26 @@ namespace ProyectoQuisha
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            int eliminarfila = DgvEmpleados.CurrentRow.Index;
+            if (string.IsNullOrEmpty(txtCodigoEmpleado.Text))
+            {
+                MessageBox.Show("Favor seleccionar fila a eliminar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                int CodigoProveedor = int.Parse(txtCodigoEmpleado.Text);
 
-            DgvEmpleados.Rows.RemoveAt(eliminarfila);
+                try
+                {
+                    CDempleados.MtdEliminarEmpleados(CodigoProveedor);
+                    MessageBox.Show("Dato eliminado correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MtdConsultarEmpleados();
+                    mtdLimpiar();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
