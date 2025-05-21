@@ -60,7 +60,7 @@ namespace ProyectoQuisha
 
         private void cboxPuesto_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtSalario.Text = CLempleados.MdtSalarioEmpleado(cboxPuesto.Text).ToString("c");
+            txtSalario.Text = CLempleados.MdtSalarioEmpleado(cboxPuesto.Text).ToString();
         }
 
         private void DgvEmpleados_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -85,7 +85,8 @@ namespace ProyectoQuisha
         private void btnAgregar_Click(object sender, EventArgs e)
         {
 
-                if ((string.IsNullOrEmpty(txtCodigoEmpleado.Text) || txtNombre.Text == "" || cboxPuesto.Text == "" || txtSalario.Text == "" || dtpFechaContratacion.Text == "" || cboxEstado.Text == ""))
+                if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(cboxPuesto.Text) || string.IsNullOrEmpty(txtSalario.Text) 
+                || string.IsNullOrEmpty(dtpFechaContratacion.Text) || string.IsNullOrEmpty(cboxEstado.Text))
                 {
                     MessageBox.Show("Los campos no pueden estar en blanco", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -93,15 +94,15 @@ namespace ProyectoQuisha
                 {
                     string nombre = txtNombre.Text;
                     string cargo = cboxPuesto.Text;
-                    string salario = txtSalario.Text;
-                    DateTime fechaContratacion = dtpFechaContratacion.Value;
+                double salario = int.Parse(txtSalario.Text);
+                DateTime fechaContratacion = dtpFechaContratacion.Value;
                     string estado = cboxEstado.Text;
                     string usuarioSistema = "Crisitian";
-                    DateTime fechaSistema = CLempleados.mtdfecha();
+                    DateTime FechaSistema = CLempleados.mtdfecha();
 
                 try
                 {
-                    CDempleados.MtdAgregarEmpleados(nombre, cargo, salario, fechaContratacion, estado, usuarioSistema, fechaSistema);
+                    CDempleados.MtdAgregarEmpleados(nombre, cargo, salario, fechaContratacion, estado, usuarioSistema, FechaSistema);
                     MessageBox.Show("Datos agregados correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     MtdConsultarEmpleados();
                     mtdLimpiar();
@@ -116,7 +117,34 @@ namespace ProyectoQuisha
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-           
+            if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(cboxPuesto.Text) || string.IsNullOrEmpty(txtSalario.Text)
+                    || string.IsNullOrEmpty(dtpFechaContratacion.Text) || string.IsNullOrEmpty(cboxEstado.Text))
+            {
+                MessageBox.Show("Los campos no pueden estar en blanco", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                int codigoEmpleado = int.Parse(txtCodigoEmpleado.Text);
+                string nombre = txtNombre.Text;
+                string cargo = cboxPuesto.Text;
+                double salario = int.Parse(txtSalario.Text);
+                DateTime fechaContratacion = dtpFechaContratacion.Value;
+                string estado = cboxEstado.Text;
+                string usuarioSistema = "Crisitian";
+                DateTime FechaSistema = CLempleados.mtdfecha();
+
+                try
+                {
+                    CDempleados.MtdModificarEmpleados(nombre, cargo, salario, fechaContratacion, estado, usuarioSistema, FechaSistema);
+                    MessageBox.Show("Datos editado correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MtdConsultarEmpleados();
+                    mtdLimpiar();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

@@ -38,6 +38,10 @@
             this.cboxEstado = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtCodigoEmpleado = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.lblCodigoEmpleado = new System.Windows.Forms.Label();
             this.btnEditar = new FontAwesome.Sharp.IconButton();
             this.btnCancelar = new FontAwesome.Sharp.IconButton();
             this.btnAgregar = new FontAwesome.Sharp.IconButton();
@@ -45,19 +49,7 @@
             this.btnEliminar = new FontAwesome.Sharp.IconButton();
             this.lblFecha = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.lblCodigoEmpleado = new System.Windows.Forms.Label();
-            this.lblNombre = new System.Windows.Forms.Label();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtCodigoEmpleado = new System.Windows.Forms.TextBox();
             this.DgvEmpleados = new System.Windows.Forms.DataGridView();
-            this.clmCodigoEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClmPuesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClmSalario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClmFechaContratacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClmEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClmUsuarioSistema = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClmFechaSistema = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvEmpleados)).BeginInit();
             this.SuspendLayout();
@@ -184,6 +176,38 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // txtCodigoEmpleado
+            // 
+            this.txtCodigoEmpleado.Location = new System.Drawing.Point(171, 41);
+            this.txtCodigoEmpleado.Name = "txtCodigoEmpleado";
+            this.txtCodigoEmpleado.Size = new System.Drawing.Size(121, 25);
+            this.txtCodigoEmpleado.TabIndex = 1;
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(170, 80);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(121, 25);
+            this.txtNombre.TabIndex = 17;
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Location = new System.Drawing.Point(43, 83);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(63, 18);
+            this.lblNombre.TabIndex = 16;
+            this.lblNombre.Text = "Nombre:";
+            // 
+            // lblCodigoEmpleado
+            // 
+            this.lblCodigoEmpleado.AutoSize = true;
+            this.lblCodigoEmpleado.Location = new System.Drawing.Point(43, 44);
+            this.lblCodigoEmpleado.Name = "lblCodigoEmpleado";
+            this.lblCodigoEmpleado.Size = new System.Drawing.Size(122, 18);
+            this.lblCodigoEmpleado.TabIndex = 15;
+            this.lblCodigoEmpleado.Text = "Codigo Empleado:";
+            // 
             // btnEditar
             // 
             this.btnEditar.BackColor = System.Drawing.Color.White;
@@ -285,98 +309,17 @@
             this.label10.TabIndex = 34;
             this.label10.Text = "Fecha actual:";
             // 
-            // lblCodigoEmpleado
-            // 
-            this.lblCodigoEmpleado.AutoSize = true;
-            this.lblCodigoEmpleado.Location = new System.Drawing.Point(43, 44);
-            this.lblCodigoEmpleado.Name = "lblCodigoEmpleado";
-            this.lblCodigoEmpleado.Size = new System.Drawing.Size(122, 18);
-            this.lblCodigoEmpleado.TabIndex = 15;
-            this.lblCodigoEmpleado.Text = "Codigo Empleado:";
-            // 
-            // lblNombre
-            // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(43, 83);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(63, 18);
-            this.lblNombre.TabIndex = 16;
-            this.lblNombre.Text = "Nombre:";
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(170, 80);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(121, 25);
-            this.txtNombre.TabIndex = 17;
-            // 
-            // txtCodigoEmpleado
-            // 
-            this.txtCodigoEmpleado.Location = new System.Drawing.Point(171, 41);
-            this.txtCodigoEmpleado.Name = "txtCodigoEmpleado";
-            this.txtCodigoEmpleado.Size = new System.Drawing.Size(121, 25);
-            this.txtCodigoEmpleado.TabIndex = 18;
-            // 
             // DgvEmpleados
             // 
             this.DgvEmpleados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DgvEmpleados.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
             this.DgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvEmpleados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clmCodigoEmpleado,
-            this.clmNombre,
-            this.ClmPuesto,
-            this.ClmSalario,
-            this.ClmFechaContratacion,
-            this.ClmEstado,
-            this.ClmUsuarioSistema,
-            this.ClmFechaSistema});
             this.DgvEmpleados.Location = new System.Drawing.Point(34, 320);
             this.DgvEmpleados.Name = "DgvEmpleados";
             this.DgvEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvEmpleados.Size = new System.Drawing.Size(831, 214);
             this.DgvEmpleados.TabIndex = 35;
             this.DgvEmpleados.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvEmpleados_CellClick);
-            // 
-            // clmCodigoEmpleado
-            // 
-            this.clmCodigoEmpleado.HeaderText = "Codigo Empleado";
-            this.clmCodigoEmpleado.Name = "clmCodigoEmpleado";
-            // 
-            // clmNombre
-            // 
-            this.clmNombre.HeaderText = "Nombre";
-            this.clmNombre.Name = "clmNombre";
-            // 
-            // ClmPuesto
-            // 
-            this.ClmPuesto.HeaderText = "Puesto";
-            this.ClmPuesto.Name = "ClmPuesto";
-            // 
-            // ClmSalario
-            // 
-            this.ClmSalario.HeaderText = "Salario";
-            this.ClmSalario.Name = "ClmSalario";
-            // 
-            // ClmFechaContratacion
-            // 
-            this.ClmFechaContratacion.HeaderText = "Fecha Contratacion";
-            this.ClmFechaContratacion.Name = "ClmFechaContratacion";
-            // 
-            // ClmEstado
-            // 
-            this.ClmEstado.HeaderText = "Estado";
-            this.ClmEstado.Name = "ClmEstado";
-            // 
-            // ClmUsuarioSistema
-            // 
-            this.ClmUsuarioSistema.HeaderText = "Usuario Sistema";
-            this.ClmUsuarioSistema.Name = "ClmUsuarioSistema";
-            // 
-            // ClmFechaSistema
-            // 
-            this.ClmFechaSistema.HeaderText = "Fecha Sistema";
-            this.ClmFechaSistema.Name = "ClmFechaSistema";
             // 
             // FrmEmpleados
             // 
@@ -427,14 +370,6 @@
         private System.Windows.Forms.TextBox txtCodigoEmpleado;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.DataGridView DgvEmpleados;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmCodigoEmpleado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClmPuesto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClmSalario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClmFechaContratacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClmEstado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClmUsuarioSistema;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClmFechaSistema;
     }
 }
 

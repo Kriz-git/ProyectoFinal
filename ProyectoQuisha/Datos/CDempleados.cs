@@ -23,7 +23,7 @@ namespace ProyectoQuisha.Datos
             return Dt;
         }
 
-        public void MtdAgregarEmpleados(string nombre, string cargo, string salario, DateTime fechaContratacion, string Estado, string UsuarioSistema, DateTime FechaSistema)
+        public void MtdAgregarEmpleados(string nombre, string cargo, double salario, DateTime fechaContratacion, string Estado, string UsuarioSistema, DateTime FechaSistema)
         {
             string QueryAgregar = "Insert into tbl_Empleado (nombre, cargo, Salario, FechaContratacion, estado, usuarioSistema, FechaSistema) " +
                                                 "values (@nombre, @cargo, @Salario, @FechaContratacion, @estado, @usuarioSistema, @FechaSistema)";
@@ -39,7 +39,7 @@ namespace ProyectoQuisha.Datos
             cd_conexion.MtdCerrarConexion();
         }
 
-        public void MtdModificarEmpleados(int CodigoEmpleado, string nombre, string cargo, string salario, DateTime fechaContratacion, string Estado, string UsuarioSistema, DateTime FechaSistema)
+        public void MtdModificarEmpleados(int CodigoEmpleado, string nombre, string cargo, double salario, DateTime fechaContratacion, string Estado, string UsuarioSistema, DateTime FechaSistema)
         {
             string QueryModificar = "Update tbl_Empleado set nombre=@nombre, cargo=@cargo, Salario=@Salario, FechaContratacion=@FechaContratacion, estado=@estado, usuarioSistema=@usuarioSistema, FechaSistema=@FechaSistema where CodigoEmpleado=@CodigoEmpleado";
             SqlCommand cmd = new SqlCommand(QueryModificar, cd_conexion.MtdAbrirConexion());

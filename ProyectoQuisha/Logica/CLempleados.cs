@@ -14,13 +14,13 @@ namespace ProyectoQuisha.Logica
             return DateTime.Now;
         }
 
-        public double MdtSalarioEmpleado(string Puesto)
+        public double MdtSalarioEmpleado(string cargo)
         {
-            if (Puesto == "Gerente")            return 35000;
-            else if (Puesto == "Recepcionista") return  7000;
-            else if (Puesto == "Botones")       return  5000;
-            else if (Puesto == "Conserje")      return  3000;
-            else if (Puesto == "Chef")         return  1000;
+            if (cargo == "Gerente")            return 35000;
+            else if (cargo == "Recepcionista") return  7000;
+            else if (cargo == "Botones")       return  5000;
+            else if (cargo == "Conserje")      return  3000;
+            else if (cargo == "Chef")         return  1000;
             else return 0;
         }
 
