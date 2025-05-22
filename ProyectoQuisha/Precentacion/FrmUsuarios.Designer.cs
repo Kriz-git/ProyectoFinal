@@ -30,21 +30,11 @@
         {
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtCodigoEmpleado = new System.Windows.Forms.TextBox();
             this.CboxRol = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cboxEstado = new System.Windows.Forms.ComboBox();
             this.DgvUsuarios = new System.Windows.Forms.DataGridView();
-            this.clmCodigoUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmCodigoEmpleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClmNombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClmPASS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClmROL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClmEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClmPuesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClmUsuarioSistema = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClmFechaSistema = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblFecha = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.btnSalir = new FontAwesome.Sharp.IconButton();
@@ -62,6 +52,7 @@
             this.btnAgregar = new FontAwesome.Sharp.IconButton();
             this.txtPASS = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.CboxCodigoEmpleado = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.DgvUsuarios)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -85,13 +76,6 @@
             this.label1.Size = new System.Drawing.Size(122, 18);
             this.label1.TabIndex = 10;
             this.label1.Text = "Codigo Empleado:";
-            // 
-            // txtCodigoEmpleado
-            // 
-            this.txtCodigoEmpleado.Location = new System.Drawing.Point(170, 76);
-            this.txtCodigoEmpleado.Name = "txtCodigoEmpleado";
-            this.txtCodigoEmpleado.Size = new System.Drawing.Size(152, 25);
-            this.txtCodigoEmpleado.TabIndex = 18;
             // 
             // CboxRol
             // 
@@ -142,67 +126,12 @@
             this.DgvUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DgvUsuarios.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
             this.DgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clmCodigoUsuario,
-            this.clmCodigoEmpleado,
-            this.ClmNombreUsuario,
-            this.ClmPASS,
-            this.ClmROL,
-            this.ClmEstado,
-            this.ClmPuesto,
-            this.ClmUsuarioSistema,
-            this.ClmFechaSistema});
             this.DgvUsuarios.Location = new System.Drawing.Point(26, 299);
             this.DgvUsuarios.Name = "DgvUsuarios";
             this.DgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvUsuarios.Size = new System.Drawing.Size(831, 214);
             this.DgvUsuarios.TabIndex = 42;
             this.DgvUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvEmpleados_CellClick);
-            // 
-            // clmCodigoUsuario
-            // 
-            this.clmCodigoUsuario.HeaderText = "Codigo Usuario";
-            this.clmCodigoUsuario.Name = "clmCodigoUsuario";
-            // 
-            // clmCodigoEmpleado
-            // 
-            this.clmCodigoEmpleado.HeaderText = "Codigo Empleado";
-            this.clmCodigoEmpleado.Name = "clmCodigoEmpleado";
-            // 
-            // ClmNombreUsuario
-            // 
-            this.ClmNombreUsuario.HeaderText = "Nombre Usuario";
-            this.ClmNombreUsuario.Name = "ClmNombreUsuario";
-            // 
-            // ClmPASS
-            // 
-            this.ClmPASS.HeaderText = "Contraseña";
-            this.ClmPASS.Name = "ClmPASS";
-            // 
-            // ClmROL
-            // 
-            this.ClmROL.HeaderText = "Rol";
-            this.ClmROL.Name = "ClmROL";
-            // 
-            // ClmEstado
-            // 
-            this.ClmEstado.HeaderText = "Estado";
-            this.ClmEstado.Name = "ClmEstado";
-            // 
-            // ClmPuesto
-            // 
-            this.ClmPuesto.HeaderText = "Puesto";
-            this.ClmPuesto.Name = "ClmPuesto";
-            // 
-            // ClmUsuarioSistema
-            // 
-            this.ClmUsuarioSistema.HeaderText = "Usuario Sistema";
-            this.ClmUsuarioSistema.Name = "ClmUsuarioSistema";
-            // 
-            // ClmFechaSistema
-            // 
-            this.ClmFechaSistema.HeaderText = "Fecha Sistema";
-            this.ClmFechaSistema.Name = "ClmFechaSistema";
             // 
             // lblFecha
             // 
@@ -256,6 +185,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.CboxCodigoEmpleado);
             this.groupBox1.Controls.Add(this.txtCodigoUsuario);
             this.groupBox1.Controls.Add(this.txtNombreUsuario);
             this.groupBox1.Controls.Add(this.lblNombre);
@@ -271,7 +201,6 @@
             this.groupBox1.Controls.Add(this.CboxRol);
             this.groupBox1.Controls.Add(this.btnAgregar);
             this.groupBox1.Controls.Add(this.txtPASS);
-            this.groupBox1.Controls.Add(this.txtCodigoEmpleado);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -416,6 +345,14 @@
             this.label4.TabIndex = 36;
             this.label4.Text = "Tabla de Empleados.";
             // 
+            // CboxCodigoEmpleado
+            // 
+            this.CboxCodigoEmpleado.FormattingEnabled = true;
+            this.CboxCodigoEmpleado.Location = new System.Drawing.Point(170, 72);
+            this.CboxCodigoEmpleado.Name = "CboxCodigoEmpleado";
+            this.CboxCodigoEmpleado.Size = new System.Drawing.Size(153, 26);
+            this.CboxCodigoEmpleado.TabIndex = 23;
+            // 
             // FrmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -432,6 +369,7 @@
             this.Controls.Add(this.label5);
             this.Name = "FrmUsuarios";
             this.Text = "tbl_Usuarios";
+            this.Load += new System.EventHandler(this.FrmUsuarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvUsuarios)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -444,7 +382,6 @@
 
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtCodigoEmpleado;
         private System.Windows.Forms.ComboBox CboxRol;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -467,14 +404,6 @@
         private FontAwesome.Sharp.IconButton btnAgregar;
         private System.Windows.Forms.TextBox txtPASS;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmCodigoUsuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmCodigoEmpleado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClmNombreUsuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClmPASS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClmROL;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClmEstado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClmPuesto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClmUsuarioSistema;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClmFechaSistema;
+        private System.Windows.Forms.ComboBox CboxCodigoEmpleado;
     }
 }

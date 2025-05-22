@@ -12,9 +12,9 @@ namespace ProyectoQuisha.Datos
     {
         CDConexion cd_conexion = new CDConexion();
 
-        public DataTable MtdConsultarEmpleados()
+        public DataTable MtdConsultarUsuarios()
         {
-            string QueryConsultarUsuarios = "select * from tbl_Usuarios";
+            string QueryConsultarUsuarios = "select * from tbl_Usuario";
             SqlDataAdapter Adapter = new SqlDataAdapter(QueryConsultarUsuarios, cd_conexion.MtdAbrirConexion());
             DataTable Dt = new DataTable();
             Adapter.Fill(Dt);
@@ -22,13 +22,13 @@ namespace ProyectoQuisha.Datos
             return Dt;
         }
 
-        public void MtdAgregarUsuarios(string nombreUsuario, string PASS, string Rol, string Estado, string Puesto, string UsuarioSistema, DateTime FechaSistema)
+        public void MtdAgregarUsuarios(string NombreUsuario, string Contrasenia, string Rol, string Estado, string Puesto, string UsuarioSistema, DateTime FechaSistema)
         {
-            string QueryAgregar = "Insert into tbl_Usuarios (nombreUsuario, PASS, Rol, Estado, Puesto, UsuarioSistema, FechaSistema) " +
-                                                "values (@nombreUsuario, @PASS, @Rol, @Estado, @Puesto, @UsuarioSistema, @FechaSistema)";
+            string QueryAgregar = "Insert into tbl_Usuario (NombreUsuario, Contrasenia, Rol, Estado, Puesto, UsuarioSistema, FechaSistema) " +
+                                                "values (@NombreUsuario, @Contrasenia, @Rol, @Estado, @Puesto, @UsuarioSistema, @FechaSistema)";
             SqlCommand cmd = new SqlCommand(QueryAgregar, cd_conexion.MtdAbrirConexion());
-            cmd.Parameters.AddWithValue("@nombreUsuario", nombreUsuario);
-            cmd.Parameters.AddWithValue("@PASS", PASS);
+            cmd.Parameters.AddWithValue("@NombreUsuario", NombreUsuario);
+            cmd.Parameters.AddWithValue("@Contrasenia", Contrasenia);
             cmd.Parameters.AddWithValue("@Rol", Rol);
             cmd.Parameters.AddWithValue("@Estado", Estado);
             cmd.Parameters.AddWithValue("@Puesto", Puesto);
@@ -38,12 +38,12 @@ namespace ProyectoQuisha.Datos
             cd_conexion.MtdCerrarConexion();
         }
 
-        public void MtdModificarUsuarios(string nombreUsuario, string PASS, string Rol, string Estado, string Puesto, string UsuarioSistema, DateTime FechaSistema)
+        public void MtdEditarUsuarios(string NombreUsuario, string Contrasenia, string Rol, string Estado, string Puesto, string UsuarioSistema, DateTime FechaSistema)
         {
-            string Querymodificar = "Update tbl_Usuarios set (nombreUsuario=@nombreUsuario, PASS=@PASS, Rol=@ROl, Estado=@Estado, Puesto=@Puesto, UsuarioSistema=@UsuarioSistema, FechaSistema=@FechaSistema where CodigoEmpleado=@CodigoEmpleado";
+            string Querymodificar = "Update tbl_Usuario set (NombreUsuario=@NombreUsuario, Contrasenia=@Contrasenia, Rol=@ROl, Estado=@Estado, Puesto=@Puesto, UsuarioSistema=@UsuarioSistema, FechaSistema=@FechaSistema where CodigoEmpleado=@CodigoEmpleado";
             SqlCommand cmd = new SqlCommand(Querymodificar, cd_conexion.MtdAbrirConexion());
-            cmd.Parameters.AddWithValue("@nombreUsuario", nombreUsuario);
-            cmd.Parameters.AddWithValue("@PASS", PASS);
+            cmd.Parameters.AddWithValue("@NombreUsuario", NombreUsuario);
+            cmd.Parameters.AddWithValue("@Contrasenia", Contrasenia);
             cmd.Parameters.AddWithValue("@Rol", Rol);
             cmd.Parameters.AddWithValue("@Estado", Estado);
             cmd.Parameters.AddWithValue("@Puesto", Puesto);
@@ -52,6 +52,15 @@ namespace ProyectoQuisha.Datos
             cmd.ExecuteNonQuery();
             cd_conexion.MtdCerrarConexion();
         }
+        public void MtdEliminarUsuarios(int codigoUsuario)
+        {
+            string QueryEliminar = "Delete from tbl_Usuario where codigoUsuario=@codigoUsuario";
+            SqlCommand cmd = new SqlCommand(QueryEliminar, cd_conexion.MtdAbrirConexion());
+            cmd.Parameters.AddWithValue("@codigoUsuario", codigoUsuario);
+            cmd.ExecuteNonQuery();
+            cd_conexion.MtdCerrarConexion();
+        }
+
 
     }
 }
