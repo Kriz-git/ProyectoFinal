@@ -180,8 +180,9 @@
             // 
             this.txtCodigoEmpleado.Location = new System.Drawing.Point(171, 41);
             this.txtCodigoEmpleado.Name = "txtCodigoEmpleado";
+            this.txtCodigoEmpleado.ReadOnly = true;
             this.txtCodigoEmpleado.Size = new System.Drawing.Size(121, 25);
-            this.txtCodigoEmpleado.TabIndex = 1;
+            this.txtCodigoEmpleado.TabIndex = 0;
             // 
             // txtNombre
             // 

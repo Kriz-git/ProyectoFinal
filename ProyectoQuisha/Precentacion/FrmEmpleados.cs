@@ -127,7 +127,7 @@ namespace ProyectoQuisha
                 int codigoEmpleado = int.Parse(txtCodigoEmpleado.Text);
                 string nombre = txtNombre.Text;
                 string cargo = cboxPuesto.Text;
-                int salario = int.Parse(txtSalario.Text);
+                double salario = int.Parse(CLempleados.MdtSalarioEmpleado(cboxPuesto.Text).ToString());
                 DateTime fechaContratacion = dtpFechaContratacion.Value;
                 string estado = cboxEstado.Text;
                 string usuarioSistema = "Crisitian";
