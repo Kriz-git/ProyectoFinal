@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoQuisha.Datos;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -11,6 +12,8 @@ namespace ProyectoQuisha.Logica
     {
         CDConexion cd_conexion = new CDConexion();
 
+
+
         public DateTime mtdfecha()
         {
             return DateTime.Now;
@@ -19,14 +22,14 @@ namespace ProyectoQuisha.Logica
         public double MtdCodigoEmpleado(int CodigoEmpleados)
         {
 
-            string QueryConsultarCodigoEmpleado = "Select CodigoEmpleados from tbl_Usuario where CodigoEmpleados=@CodigoEmpleados";
+            string QueryConsultarCodigoEmpleado = "Select CodigoEmpleado, nombre from tbl_Empleado where CodigoEmpleado=@CodigoEmpleado";
             SqlCommand CommandCodigoEmpleado = new SqlCommand(QueryConsultarCodigoEmpleado, cd_conexion.MtdAbrirConexion());
-            CommandCodigoEmpleado.Parameters.AddWithValue("@CodigoEmpleados", CodigoEmpleados);
+            CommandCodigoEmpleado.Parameters.AddWithValue("@CodigoEmpleado", CodigoEmpleados);
             SqlDataReader reader = CommandCodigoEmpleado.ExecuteReader();
 
             if (reader.Read())
             {
-                CodigoEmpleados = int.Parse(reader["CodigoEmpleados"].ToString());
+                CodigoEmpleados = int.Parse(reader["CodigoEmpleado"].ToString());
             }
             else
             {
@@ -36,5 +39,27 @@ namespace ProyectoQuisha.Logica
             cd_conexion.MtdCerrarConexion();
             return CodigoEmpleados;
         }
+
+        public string MtdNombre(string nombre)
+        {
+
+            string QueryConsultarnombre = "Select nombre from tbl_Empleado";
+            SqlCommand Commandnombre = new SqlCommand(QueryConsultarnombre, cd_conexion.MtdAbrirConexion());
+            Commandnombre.Parameters.AddWithValue("@nombre", nombre);
+            SqlDataReader reader = Commandnombre.ExecuteReader();
+
+            if (reader.Read())
+            {
+                nombre = (reader["nombre"].ToString());
+            }
+            else
+            {
+                nombre = "";
+            }
+
+            cd_conexion.MtdCerrarConexion();
+            return nombre;
+        }
+
     }
 }
